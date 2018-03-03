@@ -266,6 +266,7 @@ Status GraphExecutionState::InitBaseGraph(const BuildGraphOptions& options) {
       OptimizationPassRegistry::PRE_PLACEMENT, optimization_options));
 
   Placer placer(new_graph.get(), device_set_, session_options_);
+  printf("*******************************RUNNING PLACER**************************\n");
   // TODO(mrry): Consider making the Placer cancelable.
   TF_RETURN_IF_ERROR(placer.Run());
 
