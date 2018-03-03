@@ -269,7 +269,7 @@ Status GraphExecutionState::InitBaseGraph(const BuildGraphOptions& options) {
 
   printf("*******************************RUNNING PLACER**************************\n");
 
-  std::vector<Device*> devs = device_set_.devices();
+  std::vector<Device*> devs = device_set_->devices();
   for (int i = 0; i < devs.size(); i++)
   {
     printf("device name : %s\n", devs[i]->name().c_str());
