@@ -272,8 +272,8 @@ Status GraphExecutionState::InitBaseGraph(const BuildGraphOptions& options) {
   std::vector<Device*> devs = device_set_.devices();
   for (int i = 0; i < devs.size(); i++)
   {
-    printf("device name : %s\n", devs[i]->name());
-    printf("device type : %s\n", devs[i]->device_type());
+    printf("device name : %s\n", devs[i]->name()->c_str());
+    printf("device type : %s\n", devs[i]->device_type()->c_str());
   }
 
   // TODO(mrry): Consider making the Placer cancelable.
