@@ -266,7 +266,16 @@ Status GraphExecutionState::InitBaseGraph(const BuildGraphOptions& options) {
       OptimizationPassRegistry::PRE_PLACEMENT, optimization_options));
 
   Placer placer(new_graph.get(), device_set_, session_options_);
+
   printf("*******************************RUNNING PLACER**************************\n");
+
+  std::vector<Device*> devs = device_set_.devices();
+  for (int i = 0; i < devs.size(); i++)
+  {
+    printf("device name : %s\n", devs[i]->name());
+    printf("device type : %s\n", devs[i]->device_type());
+  }
+
   // TODO(mrry): Consider making the Placer cancelable.
   TF_RETURN_IF_ERROR(placer.Run());
 
